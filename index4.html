@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BLOOBY Coin - The Future of Meme-Powered Currency</title>
+    <meta
+      name="description"
+      content="Join the meme revolution with BLOOBY Coin! A community-driven cryptocurrency bringing humor and value to decentralized finance."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: "Grandstander", cursive;
+        background-color: #18181b;
+        color: white;
+      }
+
+      .gradient-text {
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        background-image: linear-gradient(
+          to right,
+          #f43f86,
+          #ffc850
+        ); /* Updated gradient - customize as needed */
+      }
+
+      .toast {
+        position: fixed;
+        bottom: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        border-radius: 5px;
+        z-index: 1000;
+        opacity: 0;
+        transition: all 0.5s ease-in-out;
+      }
+
+      .toast.show {
+        bottom: 20px;
+        opacity: 1;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      /* Hamburger menu styles */
+      .hamburger {
+        display: none; /* Hidden by default */
+        width: 30px;
+        height: 20px;
+        position: relative;
+        cursor: pointer;
+        z-index: 1001;
+      }
+
+      .hamburger span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background-color: white;
+        position: absolute;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .hamburger span:nth-child(1) {
+        top: 0;
+      }
+
+      .hamburger span:nth-child(2) {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .hamburger span:nth-child(3) {
+        bottom: 0;
+      }
+
+      .hamburger.open span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .hamburger.open span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+
+      .mobile-menu {
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        .desktop-menu {
+          display: none;
+        }
+
+        .hamburger {
+          display: block; /* Only show hamburger on mobile */
+        }
+
+        .mobile-menu {
+          display: block;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background-color: #18181b;
+          padding-top: 70px;
+          z-index: 1000;
+          transform: translateX(-100%);
+          transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-menu.open {
+          transform: translateX(0);
+        }
+
+        .mobile-menu ul {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .mobile-menu li {
+          margin-bottom: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <header class="bg-zinc-900 py-4 fixed w-full top-0 z-10"></header> -->
+    <header class="bg-zinc-900 py-4 fixed w-full top-0 z-10">
+      <div class="container mx-auto px-4 flex items-center justify-between">
+        <h1 class="text-2xl font-bold text-white">
+          <span class="gradient-text">BLOOBY</span> Coin
+        </h1>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <nav class="desktop-menu hidden md:flex space-x-6">
+          <ul class="flex space-x-6">
+            <li>
+              <a href="#about" class="hover:text-gray-300">About</a>
+            </li>
+            <li>
+              <a href="#why" class="hover:text-gray-300">Why BLOOBY?</a>
+            </li>
+            <li>
+              <a href="#tokenomics" class="hover:text-gray-300">Tokenomics</a>
+            </li>
+            <li>
+              <a href="#roadmap" class="hover:text-gray-300">Roadmap</a>
+            </li>
+          </ul>
+        </nav>
+        <nav class="mobile-menu md:hidden" id="mobileMenu">
+          <ul class="flex flex-col items-center space-y-6">
+            <li>
+              <a href="#about" class="hover:text-gray-300">About</a>
+            </li>
+            <li>
+              <a href="#why" class="hover:text-gray-300">Why BLOOBY?</a>
+            </li>
+            <li>
+              <a href="#tokenomics" class="hover:text-gray-300">Tokenomics</a>
+            </li>
+            <li>
+              <a href="#roadmap" class="hover:text-gray-300">Roadmap</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section
+      id="hero"
+      class="bg-zinc-900 text-white min-h-screen flex flex-col items-center justify-center mt-16"
+    >
+      <h2 class="text-4xl md:text-6xl font-bold mb-4 text-center">
+        <span class="gradient-text">BLOOBY</span> Coin: <br class="md:hidden" />
+        <span class="md:inline hidden">The Future of </span>Meme-Powered
+        Currency
+      </h2>
+      <p class="text-lg md:text-xl mb-8 text-center max-w-xl">
+        Join a vibrant community and explore the exciting possibilities of
+        blockchain, all with a dose of humor!
+      </p>
+      <img
+        src="https://i.postimg.cc/25bCdPWB/photo-2024-04-25-19-18-16.png"
+        alt="BLOOBY Coin Logo"
+        class="rounded-lg shadow-lg mb-8 w-64 md:w-96"
+        crossorigin="anonymous"
+      />
+      <a
+        href="https://t.me/Theblobbycommunity"
+        target="_blank"
+        class="bg-gradient-to-r from-pink-500 to-yellow-400 text-white font-bold py-3 px-8 rounded-lg text-center mb-4 hover:shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+        >Join Our Telegram</a
+      >
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <button
+          id="buyBtn"
+          class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+        >
+          Buy BLOOBY
+        </button>
+        <button
+          id="viewDexBtn"
+          class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+        >
+          View Chart
+        </button>
+      </div>
+    </section>
+
+    <section id="about" class="bg-zinc-900 py-16">
+      <div class="container mx-auto px-4">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center text-center md:text-left"
+        >
+          <div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">
+              About BLOOBY Coin
+            </h2>
+            <p class="text-lg md:text-xl">
+              BLOOBY Coin is more than just another meme coin - it's a
+              community-driven movement. We're all about bringing humor and
+              value to the world of decentralized finance, because who says
+              investing can't be fun?
+            </p>
+          </div>
+          <div>
+            <img
+              src="https://i.postimg.cc/25bCdPWB/photo-2024-04-25-19-18-16.png"
+              alt="BLOOBY Coin Graphic"
+              class="rounded-lg shadow-lg mx-auto md:mx-0 w-64 md:w-96"
+              crossorigin="anonymous"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" class="bg-gray-900 py-16">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">
+          Why BLOOBY Coin?
+        </h2>
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto"
+        >
+          <div>
+            <h3 class="text-xl font-bold mb-2 text-yellow-400">
+              Community Driven
+            </h3>
+            <p class="text-gray-300">
+              BLOOBY is powered by a passionate and engaged community. Join the
+              fun!
+            </p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2 text-yellow-400">
+              Meme-Powered Gains
+            </h3>
+            <p class="text-gray-300">
+              Ride the meme wave and unlock the potential of this exciting new
+              token.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2 text-yellow-400">
+              Future of Fun Finance
+            </h3>
+            <p class="text-gray-300">
+              We're building a decentralized ecosystem where laughter and profit
+              go hand-in-hand.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tokenomics" class="bg-zinc-900 py-16">
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-3xl md:text-4xl font-bold mb-8 text-center gradient-text"
+        >
+          Tokenomics
+        </h2>
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center"
+        >
+          <div
+            class="bg-gray-800 p-6 rounded-lg flex flex-col items-center justify-center"
+          >
+            <h3 class="text-xl font-bold mb-2">CONTRACT ADDRESS:</h3>
+            <input
+              type="text"
+              id="contractAddress"
+              value="0xfdca97838dfb8264db6eb7cfbea6e33c3e726417"
+              class="border-2 border-gray-600 p-2 text-black bg-white rounded-md text-center"
+              readonly
+            />
+          </div>
+          <div
+            class="bg-gray-800 p-6 rounded-lg flex flex-col items-center justify-center"
+          >
+            <h3 class="text-xl font-bold mb-2">TICKER:</h3>
+            <p class="text-lg font-bold">$BLOOBY</p>
+          </div>
+          <div
+            class="bg-gray-800 p-6 rounded-lg flex flex-col items-center justify-center"
+          >
+            <h3 class="text-xl font-bold mb-2">TAX:</h3>
+            <p class="text-lg font-bold">0%</p>
+          </div>
+          <div
+            class="bg-gray-800 p-6 rounded-lg flex flex-col items-center justify-center"
+          >
+            <h3 class="text-xl font-bold mb-2">LP:</h3>
+            <p class="text-lg font-bold">BURNED</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap" class="bg-gray-900 py-16">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 gradient-text">
+          Roadmap
+        </h2>
+        <ul class="space-y-4">
+          <li>
+            <span class="text-lg font-bold text-yellow-400"
+              >Phase 1: Launch 🚀</span
+            >
+            - Successful token launch and listing on Uniswap.
+          </li>
+          <li>
+            <span class="text-lg font-bold text-yellow-400"
+              >Phase 2: Community Growth 📢</span
+            >
+            - Expand our Telegram community, social media presence, and build
+            partnerships.
+          </li>
+          <li>
+            <span class="text-lg font-bold text-yellow-400"
+              >Phase 3: Marketing & Hype 📈</span
+            >
+            - Strategic marketing campaigns, influencer collaborations to
+            increase visibility and adoption.
+          </li>
+          <li>
+            <span class="text-lg font-bold text-yellow-400"
+              >Phase 4: BLOOBY Ecosystem 🌐</span
+            >
+            - Explore development of BLOOBY-themed NFTs, games, or other
+            exciting utilities.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="bg-zinc-900 text-white py-8 mt-16">
+      <div
+        class="container mx-auto px-4 flex items-center justify-center h-full text-xs md:text-sm"
+      >
+        DISCLOSURE: By purchasing BLOOBY coin, you agree that you are not
+        purchasing a security or investment contract and you agree to hold the
+        team harmless and not liable for any losses or taxes you may incur.
+        Although BLOOBY is a community-driven Defi Ecosystem and not a
+        registered digital currency, always make sure that you are in compliance
+        with local laws and regulations before you make any purchase.
+      </div>
+    </footer>
+
+    <div id="toast" class="toast hidden">Contract address copied!</div>
+
+    <script>
+      const contractAddressInput = document.getElementById("contractAddress");
+      const buyBtn = document.getElementById("buyBtn");
+      const viewDexBtn = document.getElementById("viewDexBtn");
+      const toast = document.getElementById("toast");
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      contractAddressInput.addEventListener("click", () => {
+        contractAddressInput.select();
+        contractAddressInput.setSelectionRange(0, 99999); // For mobile devices
+
+        navigator.clipboard
+          .writeText(contractAddressInput.value)
+          .then(() => {
+            showToast();
+          })
+          .catch((err) => {
+            console.error("Could not copy text: ", err);
+          });
+      });
+
+      buyBtn.addEventListener("click", () => {
+        window.open(
+          "https://app.uniswap.org/#/swap?inputCurrency=0x5d8741d2596dfd1815f22c15497f47d57f2b8ccf", // Replace with your actual token address
+          "_blank"
+        );
+      });
+
+      viewDexBtn.addEventListener("click", () => {
+        window.open(
+          "https://dexscreener.com/ethereum/0xfdca97838dfb8264db6eb7cfbea6e33c3e726417", // Replace with your actual token address
+          "_blank"
+        );
+      });
+
+      function showToast() {
+        toast.classList.remove("hidden");
+        toast.classList.add("show");
+        setTimeout(() => {
+          toast.classList.remove("show");
+          toast.classList.add("hidden");
+        }, 3000); // The toast will disappear after 3 seconds
+      }
+
+      // Hamburger menu toggle
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("open");
+        mobileMenu.classList.toggle("open");
+      });
+    </script>
+  </body>
+</html>
+
+<!-- currently the mobile hamburger not displaying -->
